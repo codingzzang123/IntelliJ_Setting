@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ho.test.dao.main.MainDao">
+    <select id="selectTopFive" resultType="com.ho.test.dto.main.MainDto">
+        select no,title,name from (
+            select no,title,name from board order by no desc)
+        		<![CDATA[where rownum<=5]]>
+    </select>
+</mapper>
